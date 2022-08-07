@@ -21,6 +21,7 @@
 	tdesktop
         lutris
         spectacle
+        bat
     ];
   };
 
@@ -37,6 +38,11 @@
   services.gpg-agent = {
     enable = true;
     pinentryFlavor = "qt";
+  };
+
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
   };
 
   programs.zsh = {

@@ -42,7 +42,7 @@
     enable = true;
     displayManager.sddm = {
       enable = true;
-      theme = "Breeze-Dark";
+      theme = "breeze-dark";
     };
 
     desktopManager.plasma5.enable = true;
@@ -80,6 +80,11 @@
     shell = pkgs.zsh;
   };
 
+  programs.thefuck = {
+    enable = true;
+    alias = "fuck";
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -89,6 +94,8 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
   ];
+
+  environment.shells = [ pkgs.zsh ];
 
   environment.sessionVariables = rec {
     XDG_CACHE_HOME  = "\${HOME}/.cache";
