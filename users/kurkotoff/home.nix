@@ -9,29 +9,27 @@
     stateVersion = "22.05";
 
     packages = with pkgs; [
-	gamemode
-	tealdeer
-	git-crypt
-	gnupg
-	ripgrep
-	fzf
-	pinentry_qt
-	nodejs
-	rnix-lsp
-	tdesktop
-        lutris
-        spectacle
-        bat
-        gh
-        firefox
-        thunderbird
-        discord
+      gamemode
+      tealdeer
+      git-crypt
+      gnupg
+      ripgrep
+      fzf
+      pinentry_qt
+      nodejs
+      rnix-lsp
+      tdesktop
+      lutris
+      spectacle
+      bat
+      gh
+      firefox
+      thunderbird
+      discord
     ];
   };
 
-  programs.gpg = {
-    enable = true;
-  };
+  programs.gpg = { enable = true; };
 
   programs.git = {
     enable = true;
@@ -49,36 +47,30 @@
     enableAliases = true;
   };
 
-  programs.vscode = {
-    enable = true;
-  };
+  programs.vscode = { enable = true; };
 
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    sessionVariables = rec {
-      EDITOR = "vim";
-    };
+    sessionVariables = rec { EDITOR = "vim"; };
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "thefuck" ];
-      theme   = "itchy";
+      theme = "itchy";
     };
   };
 
   programs.neovim = {
     enable = true;
     vimAlias = true;
-    
+
     coc.enable = true;
     coc.settings = {
       "languageserver" = {
         "nix" = {
           "command" = "rnix-lsp";
-          "filetypes" = [
-            "nix"
-          ];
+          "filetypes" = [ "nix" ];
         };
       };
     };

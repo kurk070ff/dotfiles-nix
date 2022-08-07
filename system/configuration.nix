@@ -5,19 +5,18 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./bootloader.nix
-      # <home-manager/nixos>
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./bootloader.nix
+    # <home-manager/nixos>
+  ];
 
-    nix = {
-      package = pkgs.nixFlakes;
-      extraOptions = ''
-        experimental-features = nix-command flakes
-      '';
-    };
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -98,16 +97,13 @@
   environment.shells = [ pkgs.zsh ];
 
   environment.sessionVariables = rec {
-    XDG_CACHE_HOME  = "\${HOME}/.cache";
+    XDG_CACHE_HOME = "\${HOME}/.cache";
     XDG_CONFIG_HOME = "\${HOME}/.config";
-    XDG_BIN_HOME    = "\${HOME}/.local/bin";
-    XDG_DATA_HOME   = "\${HOME}/.local/share";
+    XDG_BIN_HOME = "\${HOME}/.local/bin";
+    XDG_DATA_HOME = "\${HOME}/.local/share";
 
-    PATH = [
-      "\${XDG_BIN_HOME}"
-    ];
+    PATH = [ "\${XDG_BIN_HOME}" ];
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -117,9 +113,7 @@
   #   enableSSHSupport = true;
   # };
 
-  programs.steam = {
-    enable = true;
-  };
+  programs.steam = { enable = true; };
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
