@@ -22,6 +22,10 @@
         lutris
         spectacle
         bat
+        gh
+        firefox
+        thunderbird
+        discord
     ];
   };
 
@@ -43,6 +47,10 @@
   programs.exa = {
     enable = true;
     enableAliases = true;
+  };
+
+  programs.vscode = {
+    enable = true;
   };
 
   programs.zsh = {
@@ -75,11 +83,14 @@
       };
     };
 
+    withPython3 = true;
+
     extraConfig = ''
       set number
       set relativenumber
       inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
       inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+      let mapleader = " "
     '';
 
     plugins = with pkgs.vimPlugins; [
@@ -89,6 +100,7 @@
       telescope-nvim
       toggleterm-nvim
       vim-nix
+      nvim-comment
     ];
   };
 

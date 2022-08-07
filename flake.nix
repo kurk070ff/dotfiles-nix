@@ -19,6 +19,22 @@
       lib = nixpkgs.lib;
 
     in {
+      homeManagerConfigurations = {
+        kurkotoff = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./users/kurkotoff/home.nix
+            {
+              home = {
+                username = "kurkotoff";
+                homeDirectory = "/home/kurkotoff";
+                stateVersion = "22.05";
+              };
+            }
+          ];
+          };
+        };
+
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;

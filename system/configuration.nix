@@ -74,7 +74,7 @@
     packages = with pkgs; [
       firefox
       kate
-      thunderbird
+      # thunderbird
       foo2zjs
     ];
     shell = pkgs.zsh;
