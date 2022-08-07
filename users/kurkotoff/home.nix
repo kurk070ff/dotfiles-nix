@@ -26,6 +26,7 @@
       firefox
       thunderbird
       discord
+      sddm-kcm
     ];
   };
 

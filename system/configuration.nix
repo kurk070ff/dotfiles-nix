@@ -7,15 +7,15 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./bootloader.nix
-    # <home-manager/nixos>
   ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   nix = {
     package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    extraOptions = "experimental-features = nix-command flakes";
   };
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -41,7 +41,7 @@
     enable = true;
     displayManager.sddm = {
       enable = true;
-      theme = "breeze-dark";
+      theme = "breeze";
     };
 
     desktopManager.plasma5.enable = true;
@@ -102,7 +102,12 @@
     XDG_BIN_HOME = "\${HOME}/.local/bin";
     XDG_DATA_HOME = "\${HOME}/.local/share";
 
-    PATH = [ "\${XDG_BIN_HOME}" ];
+    DOTFILES_DIR = "\${HOME}/.dotfiles";
+
+    PATH = [ 
+      "\${XDG_BIN_HOME}"
+      "\${DOTFILES_DIR}"
+    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
